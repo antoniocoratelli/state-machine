@@ -1,6 +1,6 @@
 #include <iostream>
 
-#include <antoniocoratelli/StateMachine/StateMachine.h>
+#include <antoniocoratelli/StateMachine.h>
 
 using namespace std;
 
