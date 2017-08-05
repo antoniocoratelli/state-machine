@@ -17,11 +17,11 @@ The library provides the following three interfaces for building a state machine
 
   - `Controllable` events are executed by the user;
 
-  - `NonControllable` events are events that are not under direct control of the user
-    (such events can be for instance failures or timeouts).
+  - `NonControllable` events are events that are not under the direct control
+    of the user (for instance failures or timeouts).
 
 - Each `State` declares the `ControllableEvent`s that are available using the
-  `State::attach<Event>()` method, and defines the logic for handling
+  `State::attach<ControllableEvent>()` method, and defines the logic for triggering
   `NonControllableEvents` in the `State::update()` method.
 
 ## Build
