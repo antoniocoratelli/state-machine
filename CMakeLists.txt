@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 2.8)
+cmake_minimum_required(VERSION 3.2.2)
 project(StateMachine)
 
 add_compile_options(-std=c++14)
