@@ -3,6 +3,8 @@
 C++14 header-only library for implementing
 [Finite-State Machines](https://en.wikipedia.org/wiki/Finite-state_machine).
 
+[![Build Status](https://travis-ci.org/antoniocoratelli/state-machine.svg?branch=master)](https://travis-ci.org/antoniocoratelli/state-machine)
+
 The library provides the following three interfaces for building a state machine:
 `State`, `Event` and the `StateMachine` itself.
 
