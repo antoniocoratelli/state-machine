@@ -5,7 +5,7 @@
 
 namespace antoniocoratelli {
 
-    /* ControllableEvents forward declarations */
+    /* Controllable Events forward declarations */
 
     class EventTurnOn;
     class EventTurnOff;
@@ -28,7 +28,7 @@ namespace antoniocoratelli {
         Transition update() override { return {}; }
     };
 
-    /* Events */
+    /* Controllable Events */
 
     class EventTurnOn: public ControllableEvent {
     public:
