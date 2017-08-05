@@ -4,7 +4,7 @@ C++14 header-only library for implementing
 [Finite-State Machines](https://en.wikipedia.org/wiki/Finite-state_machine).
 
 The library provides the following three interfaces for building a state machine:
-`State`s, `Event`s and the `StateMachine` itself.
+`State`, `Event` and the `StateMachine` itself.
 
 - A `State` represents the current configuration of the *F.S.M.*.
 
