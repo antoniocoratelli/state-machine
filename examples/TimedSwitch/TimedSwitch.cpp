@@ -42,15 +42,34 @@ TEST(TestTimedSwitch, StateMachine) {
     EXPECT_EQ(false, timed_switch.in<StateOff>());
     EXPECT_EQ(true, timed_switch.in<StateOn>());
 
-    // Trying to trigger an event that can't be triggered in this state.
-    EXPECT_THROW(timed_switch.trigger<EventTurnOn>(), std::logic_error);
-
-    // Turning off the switch, we expect that the state changes to Off.
-    timed_switch.trigger<EventTurnOff>();
-    std::cout << timed_switch.info() << std::endl;
+    // We wait until the timer turns off the switch.
+    while(not timed_switch.update())
+        std::cout << timed_switch.info() << std::endl;
     EXPECT_EQ(true, timed_switch.in<StateOff>());
     EXPECT_EQ(false, timed_switch.in<StateOn>());
 
     // Trying to trigger an event that can't be triggered in this state.
     EXPECT_THROW(timed_switch.trigger<EventTurnOff>(), std::logic_error);
+
+    // We turn on again the switch, but this time we turn it off manually
+    // before the timeout.
+    EXPECT_NO_THROW(timed_switch.trigger<EventTurnOn>());
+    std::cout << timed_switch.info() << std::endl;
+    EXPECT_EQ(false, timed_switch.update());
+    std::cout << timed_switch.info() << std::endl;
+    EXPECT_EQ(false, timed_switch.update());
+    std::cout << timed_switch.info() << std::endl;
+    EXPECT_NO_THROW(timed_switch.trigger<EventTurnOff>());
+    std::cout << timed_switch.info() << std::endl;
+    EXPECT_EQ(true, timed_switch.in<StateOff>());
+    EXPECT_EQ(false, timed_switch.in<StateOn>());
+
+    // Turning On the switch, we expect that the state changes to On.
+    timed_switch.trigger<EventTurnOn>();
+    std::cout << timed_switch.info() << std::endl;
+    EXPECT_EQ(false, timed_switch.in<StateOff>());
+    EXPECT_EQ(true, timed_switch.in<StateOn>());
+
+    // Trying to trigger an event that can't be triggered in this state.
+    EXPECT_THROW(timed_switch.trigger<EventTurnOn>(), std::logic_error);
 }
