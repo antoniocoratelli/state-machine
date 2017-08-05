@@ -5,14 +5,30 @@ TEST(TestOnOffSwitch, States) {
     using namespace antoniocoratelli;
 
     StateOn state_on;
-    EXPECT_EQ(false, state_on.update().operator bool());
-    EXPECT_EQ(true, state_on.triggers<EventTurnOff>());
-    EXPECT_EQ(false, state_on.triggers<EventTurnOn>());
-
     StateOff state_off;
+
+    // The states don't have any non-controllable events,
+    // thus they shouldn't trigger state transitions.
+    EXPECT_EQ(false, state_on.update().operator bool());
     EXPECT_EQ(false, state_off.update().operator bool());
-    EXPECT_EQ(false, state_off.triggers<EventTurnOff>());
+
+    // Verifying which events are enabled for each state.
+    EXPECT_EQ(true, state_on.triggers<EventTurnOff>());
     EXPECT_EQ(true, state_off.triggers<EventTurnOn>());
+    EXPECT_EQ(false, state_on.triggers<EventTurnOn>());
+    EXPECT_EQ(false, state_off.triggers<EventTurnOff>());
+}
+
+TEST(TestOnOffSwitch, Events) {
+    using namespace antoniocoratelli;
+
+    EventTurnOn turn_on;
+    EventTurnOff turn_off;
+
+    // The controllable events aren't self-transitions,
+    // thus they events should trigger state transitions.
+    EXPECT_EQ(true, turn_on.execute().operator bool());
+    EXPECT_EQ(true, turn_off.execute().operator bool());
 }
 
 TEST(TestOnOffSwitch, StateMachine) {
