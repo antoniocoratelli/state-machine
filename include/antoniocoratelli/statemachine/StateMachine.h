@@ -9,6 +9,13 @@
 namespace antoniocoratelli {
 namespace statemachine {
 
+/**
+ * StateMachine implements the call to check the type of the current state,
+ * and handles state transitions.
+ * There is no need in theory to subclass this class, but in practice it's
+ * better to override the name() and info() methods to display more
+ * meaningful and descriptive information.
+ */
 class StateMachine {
 public:
     /**
