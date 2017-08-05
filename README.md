@@ -9,7 +9,8 @@ The library provides the following three interfaces for building a state machine
 - `State`s represent the possible configurations of a `StateMachine`.
 
 - `Event`s represent the possible transitions between `State`s.
-  Each `Event` defines the destination `State` that the `StateMachine`
+
+- Each `Event` defines the destination `State` that the `StateMachine`
   reaches if the `Event` itself is triggered.
 
 - `Event`s can be `Controllable` and `NonControllable`:
