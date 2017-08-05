@@ -14,7 +14,7 @@ public:
 
     StateMachine(State::uptr_t initial_state);
 
-    virtual void update() final;
+    virtual bool update() final;
 
     template<class controllable_event_t> void trigger();
 
@@ -51,8 +51,10 @@ inline void StateMachine::apply(Transition transition) {
     }
 }
 
-inline void StateMachine::update() {
-    this->apply(_current_state->update());
+inline bool StateMachine::update() {
+    Transition transition = _current_state->update();
+    this->apply(transition);
+    return transition.operator bool();
 }
 
 template<class state_t> inline bool StateMachine::in() const {
