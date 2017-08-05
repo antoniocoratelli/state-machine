@@ -3,6 +3,7 @@
 #include "Transition.h"
 
 namespace antoniocoratelli {
+namespace statemachine {
 
 class Event {
 public:
@@ -21,4 +22,5 @@ public:
     virtual ~NonControllableEvent() {}
 };
 
+} // statemachine
 } // antoniocoratelli

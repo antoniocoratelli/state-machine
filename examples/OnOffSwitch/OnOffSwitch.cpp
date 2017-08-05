@@ -2,7 +2,7 @@
 #include "OnOffSwitch.h"
 
 TEST(TestOnOffSwitch, States) {
-    using namespace antoniocoratelli;
+    using namespace antoniocoratelli::onoffswitch;
 
     StateOn state_on;
     StateOff state_off;
@@ -12,7 +12,7 @@ TEST(TestOnOffSwitch, States) {
     EXPECT_EQ(false, state_on.update().operator bool());
     EXPECT_EQ(false, state_off.update().operator bool());
 
-    // Verifying which events are enabled for each state.
+    // Verifying which controllable events are enabled for each state.
     EXPECT_EQ(true, state_on.triggers<EventTurnOff>());
     EXPECT_EQ(true, state_off.triggers<EventTurnOn>());
     EXPECT_EQ(false, state_on.triggers<EventTurnOn>());
@@ -20,7 +20,7 @@ TEST(TestOnOffSwitch, States) {
 }
 
 TEST(TestOnOffSwitch, Events) {
-    using namespace antoniocoratelli;
+    using namespace antoniocoratelli::onoffswitch;
 
     EventTurnOn turn_on;
     EventTurnOff turn_off;
@@ -31,7 +31,7 @@ TEST(TestOnOffSwitch, Events) {
 }
 
 TEST(TestOnOffSwitch, StateMachine) {
-    using namespace antoniocoratelli;
+    using namespace antoniocoratelli::onoffswitch;
 
     // Initializing the switch: it's Off by default.
     OnOffSwitch on_off_switch;
