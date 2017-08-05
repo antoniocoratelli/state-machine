@@ -1,7 +1,21 @@
 #include <gtest/gtest.h>
 #include "OnOffSwitch.h"
 
-TEST(TestOnOffSwitch, main) {
+TEST(TestOnOffSwitch, States) {
+    using namespace antoniocoratelli;
+
+    StateOn state_on;
+    EXPECT_EQ(false, state_on.update().operator bool());
+    EXPECT_EQ(true, state_on.triggers<EventTurnOff>());
+    EXPECT_EQ(false, state_on.triggers<EventTurnOn>());
+
+    StateOff state_off;
+    EXPECT_EQ(false, state_off.update().operator bool());
+    EXPECT_EQ(false, state_off.triggers<EventTurnOff>());
+    EXPECT_EQ(true, state_off.triggers<EventTurnOn>());
+}
+
+TEST(TestOnOffSwitch, StateMachine) {
     using namespace antoniocoratelli;
 
     // Initializing the switch: it's Off by default.
