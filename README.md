@@ -24,6 +24,10 @@ The library provides the following three interfaces for building a state machine
   `State::attach<ControllableEvent>()` method, and defines the logic for triggering
   `NonControllableEvents` in the `State::update()` method.
 
+## Documentation
+
+Code doxygen documentation is available [here][doc].
+
 ## Build
 
 Use a modern C++ compiler with support ot the C++14 standard.
@@ -52,3 +56,4 @@ Released under *BSD 3-clause*. See [license file](LICENSE).
 
 [build-img]: https://travis-ci.org/antoniocoratelli/state-machine.svg?branch=master
 [build-link]: https://travis-ci.org/antoniocoratelli/state-machine
+[doc]: https://antoniocoratellimirrors.gitlab.io/state-machine/annotated.html

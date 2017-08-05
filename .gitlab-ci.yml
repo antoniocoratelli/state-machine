@@ -7,7 +7,7 @@ pages:
   - doxygen Doxyfile
   - cd ..
   - mkdir public
-  - mv doc/html/ public/
+  - mv doc/html/* public/
   artifacts:
     paths:
     - public
