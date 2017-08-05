@@ -1,5 +1,5 @@
 #pragma once
-#include <antoniocoratelli/StateMachine.h>
+#include <antoniocoratelli/statemachine/StateMachine.h>
 
 namespace antoniocoratelli {
 namespace onoffswitch {
