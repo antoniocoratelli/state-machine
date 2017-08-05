@@ -12,7 +12,7 @@ namespace antoniocoratelli {
 
     /* States */
 
-    class StateOn : public State {
+    class StateOn: public State {
     public:
         StateOn() { this->attach<EventTurnOff>(); }
         std::string name() override { return "StateOn"; }
@@ -20,7 +20,7 @@ namespace antoniocoratelli {
         Transition update() override { return {}; }
     };
 
-    class StateOff : public State {
+    class StateOff: public State {
     public:
         StateOff() { this->attach<EventTurnOn>(); }
         std::string name() override { return "StateOff"; }
@@ -30,13 +30,13 @@ namespace antoniocoratelli {
 
     /* Events */
 
-    class EventTurnOn : public ControllableEvent {
+    class EventTurnOn: public ControllableEvent {
     public:
         std::string name() override { return "TurnOn"; }
         Transition execute() { return {new StateOn}; }
     };
 
-    class EventTurnOff : public ControllableEvent {
+    class EventTurnOff: public ControllableEvent {
     public:
         std::string name() override { return "TurnOff"; }
         Transition execute() { return {new StateOff}; }
@@ -44,17 +44,11 @@ namespace antoniocoratelli {
 
     /* State Machine */
 
-    class OnOffSwitch : public StateMachine {
+    class OnOffSwitch: public StateMachine {
     public:
-        OnOffSwitch() : StateMachine(std::make_unique<StateOff>()) {}
-
-        std::string name() const override {
-            return "OnOffSwitch::" + _current_state->name();
-        }
-
-        std::string info() const override {
-            return "{" + name() + "} " + _current_state->info();
-        }
+        OnOffSwitch(): StateMachine(std::make_unique<StateOff>()) {}
+        std::string name() const override { return "OnOffSwitch::" + _current_state->name(); }
+        std::string info() const override { return "{" + name() + "} " + _current_state->info(); }
     };
 }
 
