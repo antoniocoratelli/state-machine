@@ -2,21 +2,13 @@
 #define ANTONIOCORATELLI_TRANSITION_H
 
 #include <experimental/optional>
-#include "State.h"
 
-namespace antoniocoratelli
-{
-    /**
-     * Transition provides a simple interface to specify
-     */
-    class Transition:
-        private std::experimental::optional<State::uptr_t>
-    {
-    public:
-        inline bool emitted() const { return bool(); }
+namespace antoniocoratelli {
 
-        inline State::uptr_t destination() { return std::move(value()); }
-    };
-}
+class State;
+
+typedef std::experimental::optional<State*> Transition;
+
+} // antoniocoratelli
 
 #endif
