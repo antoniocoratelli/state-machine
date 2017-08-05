@@ -11,8 +11,10 @@ using std::chrono::seconds;
 
 class EventTurnOn;
 class EventTurnOff;
+class StateOn;
+class StateOff;
 
-/* States */
+/* Controllable States */
 
 class StateOff: public statemachine::State {
 public:
@@ -21,6 +23,16 @@ public:
     std::string info() override { return "Circuit is interrupted."; }
     statemachine::Transition update() override { return {}; }
 };
+
+/* NonControllable Events */
+
+class EventTimeout: public statemachine::NonControllableEvent {
+public:
+    std::string name() override { return "Timeout"; }
+    statemachine::Transition execute() { return {new StateOff}; }
+};
+
+/* NonControllable States */
 
 class StateOn: public statemachine::State {
 public:
@@ -40,7 +52,7 @@ public:
 
     statemachine::Transition update() override {
         if(_timer-- > seconds(0)) return {};
-        else return {new StateOff};
+        else return EventTimeout().execute();
     }
 
 private:
@@ -58,14 +70,6 @@ public:
 class EventTurnOff: public statemachine::ControllableEvent {
 public:
     std::string name() override { return "TurnOff"; }
-    statemachine::Transition execute() { return {new StateOff}; }
-};
-
-/* NonControllable Events */
-
-class EventTimeout: public statemachine::NonControllableEvent {
-public:
-    std::string name() override { return "Timeout"; }
     statemachine::Transition execute() { return {new StateOff}; }
 };
 
