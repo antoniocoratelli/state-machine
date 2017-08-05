@@ -13,8 +13,8 @@ namespace statemachine {
  * StateMachine implements the logic to check the type of the current state,
  * handles state changes for ControllableEvents, and delegates the handling of
  * NonControllableEvents to the current State object.
- * There is no need in theory to subclass this class, but in practice it's
- * better to override the name() and info() methods to display more
+ * There is no need in theory to subclass StateMachine, but in practice it's
+ * nice to override the name() and info() methods to display more
  * meaningful and descriptive information.
  */
 class StateMachine {
