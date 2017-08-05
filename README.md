@@ -6,7 +6,7 @@ C++14 header-only library for implementing
 The library provides the following three interfaces for building a state machine:
 `State`, `Event` and the `StateMachine` itself.
 
-- A `State` represents the current configuration of the *F.S.M.*.
+- `State`s represent the possible configurations of a `StateMachine`.
 
 - `Event`s represent the possible transitions between `State`s.
   Each `Event` defines the destination `State` that the `StateMachine`
