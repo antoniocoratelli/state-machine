@@ -46,21 +46,21 @@ TEST(TestOnOffSwitch, StateMachine) {
     EXPECT_EQ(true, on_off_switch.in<StateOff>());
     EXPECT_EQ(false, on_off_switch.in<StateOn>());
 
-    // Turning on the switch, we expect that the state changes to On
+    // Turning on the switch, we expect that the state changes to On.
     on_off_switch.trigger<EventTurnOn>();
     std::cout << on_off_switch.info() << std::endl;
     EXPECT_EQ(false, on_off_switch.in<StateOff>());
     EXPECT_EQ(true, on_off_switch.in<StateOn>());
 
-    // Trying to trigger an event that can't be triggered in this state
+    // Trying to trigger an event that can't be triggered in this state.
     EXPECT_THROW(on_off_switch.trigger<EventTurnOn>(), std::logic_error);
 
-    // Turning off the switch, we expect that the state changes to Off
+    // Turning off the switch, we expect that the state changes to Off.
     on_off_switch.trigger<EventTurnOff>();
     std::cout << on_off_switch.info() << std::endl;
     EXPECT_EQ(true, on_off_switch.in<StateOff>());
     EXPECT_EQ(false, on_off_switch.in<StateOn>());
 
-    // Trying to trigger an event that can't be triggered in this state
+    // Trying to trigger an event that can't be triggered in this state.
     EXPECT_THROW(on_off_switch.trigger<EventTurnOff>(), std::logic_error);
 }
