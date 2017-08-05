@@ -7,6 +7,7 @@
 namespace antoniocoratelli {
 
 class Event {
+public:
     virtual Transition execute() = 0;
     virtual std::string name() = 0;
     virtual ~Event() {}
