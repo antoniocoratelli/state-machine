@@ -75,7 +75,7 @@ public:
 
 class EventCoffeeReady: public statemachine::NonControllableEvent {
 public:
-    std::string name() override { return "TurnOn"; }
+    std::string name() override { return "CoffeeReady"; }
     statemachine::Transition execute() { return {new StateOn}; }
 };
 
