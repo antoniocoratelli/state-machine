@@ -11,18 +11,41 @@ namespace statemachine {
 
 class StateMachine {
 public:
-
+    /**
+     * Constructs the state with the desired initial state.
+     */
     StateMachine(State::uptr_t initial_state);
 
-    virtual bool update() final;
+    /**
+     * Returns true iff the current state of the object is `state_t`.
+     */
+    template<class state_t> bool in() const;
 
-    template<class controllable_event_t> void trigger();
-
+    /**
+     * Short string representation of the state machine.
+     */
     virtual std::string name() const;
 
+    /**
+     * Extended string representation of the state machine.
+     */
     virtual std::string info() const;
 
-    template<class state_t> bool in() const;
+    /**
+     * Trigger a ControllableEvent and moves the state of the machine to the
+     * destination state specified by the Event.
+     * @throws std::logic_error If the event is not attached to the current state.
+     */
+    template<class controllable_event_t> void trigger();
+
+    /**
+     * Calls the update method of the current state, to handle the possible
+     * NonControllableEvents defined by the state itself.
+     * @returns true Iff the state of the machine changes as effect of the call.
+     */
+    virtual bool update() final;
+
+    virtual ~StateMachine() {}
 
 protected:
     State::uptr_t _current_state;
