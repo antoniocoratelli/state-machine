@@ -1,6 +1,4 @@
-#ifndef ANTONIOCORATELLI_STATE_H
-#define ANTONIOCORATELLI_STATE_H
-
+#pragma once
 #include <memory>
 #include <set>
 #include <string>
@@ -49,5 +47,3 @@ template<class controllable_event_t> inline bool antoniocoratelli::State::trigge
     std::type_index event_type(typeid(controllable_event_t));
     return _allowed_controllable_events.count(event_type) > 0;
 }
-
-#endif

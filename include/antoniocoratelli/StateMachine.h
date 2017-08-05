@@ -1,6 +1,4 @@
-#ifndef ANTONIOCORATELLI_STATEMACHINE_H
-#define ANTONIOCORATELLI_STATEMACHINE_H
-
+#pragma once
 #include <iostream>
 #include <stdexcept>
 #include <string>
@@ -76,5 +74,3 @@ template<class controllable_event_t> inline void antoniocoratelli::StateMachine:
         throw std::logic_error("Event<" + e + "> can't be triggered in State<" + s + ">");
     }
 }
-
-#endif

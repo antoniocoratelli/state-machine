@@ -1,6 +1,4 @@
-#ifndef ANTONIOCORATELLI_EVENT_H
-#define ANTONIOCORATELLI_EVENT_H
-
+#pragma once
 #include <string>
 #include "Transition.h"
 
@@ -24,5 +22,3 @@ public:
 };
 
 } // antoniocoratelli
-
-#endif

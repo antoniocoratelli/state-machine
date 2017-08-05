@@ -1,6 +1,4 @@
-#ifndef ANTONIOCORATELLI_ONOFFSWITCH_H
-#define ANTONIOCORATELLI_ONOFFSWITCH_H
-
+#pragma once
 #include <antoniocoratelli/StateMachine.h>
 
 namespace antoniocoratelli {
@@ -51,5 +49,3 @@ namespace antoniocoratelli {
         std::string info() const override { return "{" + name() + "} " + _current_state->info(); }
     };
 }
-
-#endif
