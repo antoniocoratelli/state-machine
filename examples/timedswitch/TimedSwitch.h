@@ -20,7 +20,7 @@ class StateOff: public statemachine::State {
 public:
     StateOff() { this->attach<EventTurnOn>(); }
     std::string name() override { return "StateOff"; }
-    std::string info() override { return "Circuit is interrupted."; }
+    std::string info() override { return "Circuit is open."; }
     statemachine::Transition update() override { return {}; }
 };
 
