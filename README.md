@@ -2,8 +2,14 @@
 
 C++14 header-only interface for implementing State Machines.
 
-## Usage
+## Examples
+
+#### OnOffSwitch
+
+#### TimedSwitch
+
+#### Moka
 
 ## License
 
-Released under *BSD 3-clause*. See (license file)[LICENSE].
+Released under *BSD 3-clause*. See [license file](LICENSE).
