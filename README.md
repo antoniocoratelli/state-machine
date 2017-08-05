@@ -29,11 +29,13 @@ The library provides the following three interfaces for building a state machine
 Use a modern C++ compiler with support ot the C++14 standard.
 The code was tested with `g++ 6.3.0 20170406`.
 
+Run in the project folder:
+
 ```
 mkdir -p build && (cd build && cmake .. && make -j$(nproc))
 ```
 
-Example tests are executed automatically at the end of the build.
+Unit tests for the examples are executed automatically at the end of the build.
 
 ## Examples
 
