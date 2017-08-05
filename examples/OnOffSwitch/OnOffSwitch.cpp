@@ -25,8 +25,7 @@ TEST(TestOnOffSwitch, Events) {
     EventTurnOn turn_on;
     EventTurnOff turn_off;
 
-    // The controllable events aren't self-transitions,
-    // thus they events should trigger state transitions.
+    // The controllable events aren't self-transitions.
     EXPECT_EQ(true, turn_on.execute().operator bool());
     EXPECT_EQ(true, turn_off.execute().operator bool());
 }
