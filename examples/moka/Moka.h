@@ -76,7 +76,7 @@ public:
 class EventCoffeeReady: public statemachine::NonControllableEvent {
 public:
     std::string name() override { return "CoffeeReady"; }
-    statemachine::Transition execute() { return {new StateOn}; }
+    statemachine::Transition execute() { return {new StateReadyToServe}; }
 };
 
 /* NonControllable States */
@@ -98,7 +98,7 @@ public:
     }
 
     statemachine::Transition update() override {
-        if(_timeout-- > 0) return {};
+        if(_timeout-- > minutes(0)) return {};
         else return EventCoffeeReady().execute();
     }
 
@@ -108,24 +108,48 @@ private:
 
 /* Controllable Events */
 
-class EventTurnOn: public statemachine::ControllableEvent {
+class EventPutWater: public statemachine::ControllableEvent {
 public:
-    std::string name() override { return "TurnOn"; }
-    statemachine::Transition execute() { return {new StateOn}; }
+    std::string name() override { return "PutWater"; }
+    statemachine::Transition execute() { return {new StateReadyForGroundCoffee}; }
 };
 
-class EventTurnOff: public statemachine::ControllableEvent {
+class EventPutGroundCoffee: public statemachine::ControllableEvent {
 public:
-    std::string name() override { return "TurnOff"; }
-    statemachine::Transition execute() { return {new StateOff}; }
+    std::string name() override { return "PutGroundCoffee"; }
+    statemachine::Transition execute() { return {new StateReadyToBrew}; }
+};
+
+class EventTurnFireOn: public statemachine::ControllableEvent {
+public:
+    std::string name() override { return "TurnFireOn"; }
+    statemachine::Transition execute() { return {new StateBrewing}; }
+};
+
+class EventTurnFireOff: public statemachine::ControllableEvent {
+public:
+    std::string name() override { return "TurnFireOff"; }
+    statemachine::Transition execute() { return {new StateDirty}; }
+};
+
+class EventServe: public statemachine::ControllableEvent {
+public:
+    std::string name() override { return "Serve"; }
+    statemachine::Transition execute() { return {new StateDirty}; }
+};
+
+class EventClean: public statemachine::ControllableEvent {
+public:
+    std::string name() override { return "Clean"; }
+    statemachine::Transition execute() { return {new StateIdle}; }
 };
 
 /* State Machine */
 
-class OnOffSwitch: public statemachine::StateMachine {
+class Moka: public statemachine::StateMachine {
 public:
-    OnOffSwitch(): StateMachine(std::make_unique<StateOff>()) {}
-    std::string name() const override { return "OnOffSwitch::" + _current_state->name(); }
+    Moka(): StateMachine(std::make_unique<StateIdle>()) {}
+    std::string name() const override { return "Moka::" + _current_state->name(); }
     std::string info() const override { return "{" + name() + "} " + _current_state->info(); }
 };
 
