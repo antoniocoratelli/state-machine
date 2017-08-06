@@ -23,7 +23,7 @@ public:
     StateIdle() {
         this->attach<EventPutWater>();
     }
-    std::string name() override { return "StateIdle"; }
+    std::string name() override { return "Idle"; }
     std::string info() override { return "Clean and ready to prepare another coffee."; }
     statemachine::Transition update() override { return {}; }
 };
@@ -34,7 +34,7 @@ public:
         this->attach<EventPutGroundCoffee>();
         this->attach<EventClean>();
     }
-    std::string name() override { return "StateReadyForGroundCoffee"; }
+    std::string name() override { return "ReadyForGroundCoffee"; }
     std::string info() override { return "Waiting for ground coffee ..."; }
     statemachine::Transition update() override { return {}; }
 };
@@ -45,7 +45,7 @@ public:
         this->attach<EventTurnFireOn>();
         this->attach<EventClean>();
     }
-    std::string name() override { return "StateReadyToBrew"; }
+    std::string name() override { return "ReadyToBrew"; }
     std::string info() override { return "Ready to brew ..."; }
     statemachine::Transition update() override { return {}; }
 };
@@ -56,7 +56,7 @@ public:
         this->attach<EventServe>();
         this->attach<EventClean>();
     }
-    std::string name() override { return "StateReadyToServe"; }
+    std::string name() override { return "ReadyToServe"; }
     std::string info() override { return "Ready to serve!"; }
     statemachine::Transition update() override { return {}; }
 };
@@ -66,7 +66,7 @@ public:
     StateDirty() {
         this->attach<EventClean>();
     }
-    std::string name() override { return "StateDirty"; }
+    std::string name() override { return "Dirty"; }
     std::string info() override { return "Moka is dirty. Please wash before next usage."; }
     statemachine::Transition update() override { return {}; }
 };
@@ -81,15 +81,15 @@ public:
 
 /* NonControllable States */
 
-class StateBaking: public statemachine::State {
+class StateBrewing: public statemachine::State {
 public:
-    StateBaking():
+    StateBrewing():
         _timeout(5) {
         this->attach<EventTurnFireOff>();
     }
 
     std::string name() override {
-        return "StateReadyToBrew";
+        return "Brewing";
     }
 
     std::string info() override {
