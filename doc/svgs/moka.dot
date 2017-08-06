@@ -1,0 +1,18 @@
+digraph finite_state_machine {
+  rankdir=LR;
+  node[pos="3,3!",shape=box,color=black,fontcolor=black] Idle;
+  node[pos="1,2!",shape=box,color=black,fontcolor=black] WaitingForGroundCoffee;
+  node[pos="3,1!",shape=box,color=black,fontcolor=black] ReadyToBrew;
+  node[pos="6,1!",shape=box,color=red,fontcolor=red] Brewing;
+  node[pos="8,2!",shape=box,color=black,fontcolor=black] ReadyToServe;
+  node[pos="6,3!",shape=box,color=black,fontcolor=black] Dirty;
+  Idle                   -> WaitingForGroundCoffee [label=FillWater];
+  WaitingForGroundCoffee -> Idle                   [label=Clean];
+  WaitingForGroundCoffee -> ReadyToBrew            [label=PutGroundCoffee];       
+  ReadyToBrew            -> Idle                   [label=Clean];
+  ReadyToBrew            -> Brewing                [label=TurnFireOn];
+  Brewing                -> Dirty                  [label=TurnFireOff];
+  Brewing                -> ReadyToServe           [label=CoffeeDone,color=red,fontcolor=red];
+  ReadyToServe           -> Dirty                  [label=Serve];
+  Dirty                  -> Idle                   [label=Clean];
+}

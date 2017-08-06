@@ -1,0 +1,8 @@
+digraph finite_state_machine {
+  rankdir=LR;
+  node[pos="1,1!",shape=box,color=black,fontcolor=black] StateOff;
+  node[pos="3,1!",shape=box,color=red,fontcolor=red] StateOn;
+  StateOff -> StateOn [label=TurnOn];
+  StateOn -> StateOff [label=TurnOff];
+  StateOn -> StateOff [label=Timeout,color=red,fontcolor=red];
+}
