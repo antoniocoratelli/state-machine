@@ -39,14 +39,14 @@ public:
     statemachine::Transition update() override { return {}; }
 };
 
-class StateReadyToBake: public statemachine::State {
+class StateReadyToBrew: public statemachine::State {
 public:
-    StateReadyToBake() {
+    StateReadyToBrew() {
         this->attach<EventTurnFireOn>();
         this->attach<EventClean>();
     }
-    std::string name() override { return "StateReadyToBake"; }
-    std::string info() override { return "Ready to bake ..."; }
+    std::string name() override { return "StateReadyToBrew"; }
+    std::string info() override { return "Ready to brew ..."; }
     statemachine::Transition update() override { return {}; }
 };
 
@@ -67,7 +67,7 @@ public:
         this->attach<EventClean>();
     }
     std::string name() override { return "StateDirty"; }
-    std::string info() override { return "Baker is dirty. Please wash before next usage."; }
+    std::string info() override { return "Moka is dirty. Please wash before next usage."; }
     statemachine::Transition update() override { return {}; }
 };
 
@@ -89,7 +89,7 @@ public:
     }
 
     std::string name() override {
-        return "StateReadyToBake";
+        return "StateReadyToBrew";
     }
 
     std::string info() override {
