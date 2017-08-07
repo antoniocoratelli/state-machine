@@ -8,6 +8,7 @@ pages:
   - cd ..
   - mkdir public
   - mv doc/html/* public/
+  - cp doc/badges public/
   artifacts:
     paths:
     - public
