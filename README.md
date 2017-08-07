@@ -39,21 +39,29 @@ Run in the project folder:
 mkdir -p build && (cd build && cmake .. && make -j$(nproc))
 ```
 
-Unit tests for the examples are executed automatically at the end of the build.
-
 ## Examples
 
-#### OnOffSwitch
+In order to validate and demonstrate the usage of the library, three examples
+have been developed: a simple On/Off switch, an On/Off switch with an
+automatic reset timer, and a [Moka][moka-img] coffee brewer.
 
-[![OnOffSwitch][example-img-onoffswitch]][example-code-onoffswitch]
+Unit tests for these examples are executed automatically at the end of the
+build.
 
-#### TimedSwitch
+Controllable events and states are showed in black, while NonControllable
+events and states are shown in red.
 
-[![TimedSwitch][example-img-timedswitch]][example-code-timedswitch]
+#### OnOffSwitch ([implementation][example-code-onoffswitch], [tests][example-test-onoffswitch])
 
-#### Moka
+![OnOffSwitch][example-img-onoffswitch]
 
-[![Moka][example-img-moka]][example-code-moka]
+#### TimedSwitch ([implementation][example-code-timedswitch], [tests][example-test-timedswitch])
+
+![TimedSwitch][example-img-timedswitch]
+
+#### Moka ([implementation][example-code-moka], [tests][example-test-moka])
+
+![Moka][example-img-moka]
 
 
 [build-img]: https://travis-ci.org/antoniocoratelli/state-machine.svg?branch=master
@@ -67,6 +75,12 @@ Unit tests for the examples are executed automatically at the end of the build.
 [example-img-timedswitch]: doc/examples/timedswitch.jpg
 [example-img-moka]: doc/examples/moka.jpg
 
-[example-code-onoffswitch]: examples/onoffswitch/OnOffSwitch.cpp
-[example-code-timedswitch]: examples/timedswitch/TimedSwitch.cpp
-[example-code-moka]: examples/moka/Moka.cpp
+[example-code-onoffswitch]: examples/onoffswitch/OnOffSwitch.h
+[example-code-timedswitch]: examples/timedswitch/TimedSwitch.h
+[example-code-moka]: examples/moka/Moka.h
+
+[example-test-onoffswitch]: examples/onoffswitch/OnOffSwitch.cpp
+[example-test-timedswitch]: examples/timedswitch/TimedSwitch.cpp
+[example-test-moka]: examples/moka/Moka.cpp
+
+[moka-img]: https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Moka2.jpg/855px-Moka2.jpg
