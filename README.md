@@ -1,7 +1,11 @@
-# state-machine [![Build Status][build-img]][build-link]
+# state-machine
 
 C++14 header-only library for implementing
 [Finite-State Machines](https://en.wikipedia.org/wiki/Finite-state_machine).
+
+[![Build Status][build-img]][build-link]
+[![Documentation][doc-img]][doc-link]
+[![License][license-img]][license-link]
 
 The library provides the following three interfaces for building a state
  machine: `State`, `Event` and the `StateMachine` itself.
@@ -26,7 +30,7 @@ The library provides the following three interfaces for building a state
 
 ## Documentation
 
-Code doxygen documentation is available [here][doc].
+Code doxygen documentation is available [here][doc-link].
 
 ## Build
 
@@ -62,7 +66,10 @@ Released under *BSD 3-clause*. See [license file](LICENSE).
 
 [build-img]: https://travis-ci.org/antoniocoratelli/state-machine.svg?branch=master
 [build-link]: https://travis-ci.org/antoniocoratelli/state-machine
-[doc]: https://antoniocoratellimirrors.gitlab.io/state-machine/annotated.html
+[doc-img]: doc/badges/doc.svg
+[doc-link]: https://antoniocoratellimirrors.gitlab.io/state-machine/annotated.html
+[license-img]: doc/badges/license.svg
+[license-link]: LICENSE
 
 [example-img-onoffswitch]: doc/examples/onoffswitch.jpg
 [example-img-timedswitch]: doc/examples/timedswitch.jpg
