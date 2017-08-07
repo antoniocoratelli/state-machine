@@ -20,3 +20,41 @@ TEST(TestMoka, States) {
     EXPECT_EQ(false, StateReadyToServe().triggers<EventFillWater>());
 }
 
+TEST(TestMoka, NormalUsage) {
+    using namespace antoniocoratelli::moka;
+
+    // Initializing the moka: it's Idle by default.
+    Moka moka;
+    std::cout << moka.info() << std::endl;
+    EXPECT_EQ(true, moka.in<StateIdle>());
+
+    // Filling water.
+    EXPECT_NO_THROW(moka.trigger<EventFillWater>());
+    std::cout << moka.info() << std::endl;
+    EXPECT_EQ(true, moka.in<StateWaitingForGroundCoffee>());
+
+    // Adding ground coffee.
+    EXPECT_NO_THROW(moka.trigger<EventPutGroundCoffee>());
+    std::cout << moka.info() << std::endl;
+    EXPECT_EQ(true, moka.in<StateReadyToBrew>());
+
+    // Turning fire on.
+    EXPECT_NO_THROW(moka.trigger<EventTurnFireOn>());
+    std::cout << moka.info() << std::endl;
+    EXPECT_EQ(true, moka.in<StateBrewing>());
+
+    // Waiting for it to finish.
+    while(not moka.update())
+        std::cout << moka.info() << std::endl;
+    EXPECT_EQ(true, moka.in<StateReadyToServe>());
+
+    // Serving.
+    EXPECT_NO_THROW(moka.trigger<EventServe>());
+    std::cout << moka.info() << std::endl;
+    EXPECT_EQ(true, moka.in<StateDirty>());
+
+    // Cleaning.
+    EXPECT_NO_THROW(moka.trigger<EventClean>());
+    std::cout << moka.info() << std::endl;
+    EXPECT_EQ(true, moka.in<StateIdle>());
+}
