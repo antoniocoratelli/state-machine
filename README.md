@@ -68,7 +68,7 @@ Released under *BSD 3-clause*. See [license file](LICENSE).
 [build-link]: https://antoniocoratellimirrors.gitlab.io/state-machine/badges/doc.svg
 [doc-img]: https://img.shields.io/badge/documentation-here-brightgreen.svg?style=flat
 [doc-link]: https://antoniocoratellimirrors.gitlab.io/state-machine/annotated.html
-[license-img]: https://img.shields.io/badge/license-MIT-blue.svg?style=flat
+[license-img]: https://img.shields.io/badge/license-BSD-blue.svg?style=flat
 [license-link]: LICENSE
 
 [example-img-onoffswitch]: doc/examples/onoffswitch.jpg
