@@ -9,7 +9,7 @@ using std::chrono::minutes;
 
 /* Controllable Events forward declarations */
 
-class EventPutWater;
+class EventFillWater;
 class EventPutGroundCoffee;
 class EventTurnFireOn;
 class EventTurnFireOff;
@@ -21,16 +21,16 @@ class EventClean;
 class StateIdle: public statemachine::State {
 public:
     StateIdle() {
-        this->attach<EventPutWater>();
+        this->attach<EventFillWater>();
     }
     std::string name() override { return "Idle"; }
     std::string info() override { return "Clean and ready to prepare another coffee."; }
     statemachine::Transition update() override { return {}; }
 };
 
-class StateReadyForGroundCoffee: public statemachine::State {
+class StateWaitingForGroundCoffee: public statemachine::State {
 public:
-    StateReadyForGroundCoffee() {
+    StateWaitingForGroundCoffee() {
         this->attach<EventPutGroundCoffee>();
         this->attach<EventClean>();
     }
@@ -108,10 +108,10 @@ private:
 
 /* Controllable Events */
 
-class EventPutWater: public statemachine::ControllableEvent {
+class EventFillWater: public statemachine::ControllableEvent {
 public:
     std::string name() override { return "PutWater"; }
-    statemachine::Transition execute() { return {new StateReadyForGroundCoffee}; }
+    statemachine::Transition execute() { return {new StateWaitingForGroundCoffee}; }
 };
 
 class EventPutGroundCoffee: public statemachine::ControllableEvent {
