@@ -65,10 +65,10 @@ Released under *BSD 3-clause*. See [license file](LICENSE).
 
 
 [build-img]: https://travis-ci.org/antoniocoratelli/state-machine.svg?branch=master
-[build-link]: https://travis-ci.org/antoniocoratelli/state-machine
+[build-link]: https://antoniocoratellimirrors.gitlab.io/state-machine/badges/doc.svg
 [doc-img]: doc/badges/doc.svg
 [doc-link]: https://antoniocoratellimirrors.gitlab.io/state-machine/annotated.html
-[license-img]: doc/badges/license.svg
+[license-img]: https://antoniocoratellimirrors.gitlab.io/state-machine/badges/license.svg
 [license-link]: LICENSE
 
 [example-img-onoffswitch]: doc/examples/onoffswitch.jpg
