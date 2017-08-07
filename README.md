@@ -3,8 +3,8 @@
 C++14 header-only library for implementing
 [Finite-State Machines](https://en.wikipedia.org/wiki/Finite-state_machine).
 
-The library provides the following three interfaces for building a state machine:
-`State`, `Event` and the `StateMachine` itself.
+The library provides the following three interfaces for building a state
+ machine: `State`, `Event` and the `StateMachine` itself.
 
 - `State`s represent the possible configurations of a `StateMachine`.
 
@@ -21,8 +21,8 @@ The library provides the following three interfaces for building a state machine
     of the user (for instance failures or timeouts).
 
 - Each `State` declares the `ControllableEvent`s that are available using the
-  `State::attach<ControllableEvent>()` method, and defines the logic for triggering
-  `NonControllableEvents` in the `State::update()` method.
+  `State::attach<ControllableEvent>()` method, and defines the logic for
+  triggering `NonControllableEvents` in the `State::update()` method.
 
 ## Documentation
 
@@ -31,7 +31,7 @@ Code doxygen documentation is available [here][doc].
 ## Build
 
 Use a modern C++ compiler with support ot the C++14 standard.
-The code was tested with `g++ 6.3.0 20170406`.
+Code was developed using `g++ 6.3.0 20170406`.
 
 Run in the project folder:
 
@@ -45,9 +45,15 @@ Unit tests for the examples are executed automatically at the end of the build.
 
 #### OnOffSwitch
 
+[![OnOffSwitch][example-img-onoffswitch]][example-code-onoffswitch]
+
 #### TimedSwitch
 
+[![TimedSwitch][example-img-timedswitch]][example-code-timedswitch]
+
 #### Moka
+
+[![Moka][example-img-moka]][example-code-moka]
 
 ## License
 
@@ -57,3 +63,11 @@ Released under *BSD 3-clause*. See [license file](LICENSE).
 [build-img]: https://travis-ci.org/antoniocoratelli/state-machine.svg?branch=master
 [build-link]: https://travis-ci.org/antoniocoratelli/state-machine
 [doc]: https://antoniocoratellimirrors.gitlab.io/state-machine/annotated.html
+
+[example-img-onoffswitch]: doc/examples/onoffswitch.jpg
+[example-img-timedswitch]: doc/examples/timedswitch.jpg
+[example-img-moka]: doc/examples/moka.jpg
+
+[example-code-onoffswitch]: examples/onoffswitch/OnOffSwitch.cpp
+[example-code-timedswitch]: examples/timedswitch/TimedSwitch.cpp
+[example-code-moka]: examples/moka/Moka.cpp
