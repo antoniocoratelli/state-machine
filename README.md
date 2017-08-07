@@ -28,10 +28,6 @@ The library provides the following three interfaces for building a state
   `State::attach<ControllableEvent>()` method, and defines the logic for
   triggering `NonControllableEvents` in the `State::update()` method.
 
-## Documentation
-
-Code doxygen documentation is available [here][doc-link].
-
 ## Build
 
 Use a modern C++ compiler with support ot the C++14 standard.
@@ -58,10 +54,6 @@ Unit tests for the examples are executed automatically at the end of the build.
 #### Moka
 
 [![Moka][example-img-moka]][example-code-moka]
-
-## License
-
-Released under *BSD 3-clause*. See [license file](LICENSE).
 
 
 [build-img]: https://travis-ci.org/antoniocoratelli/state-machine.svg?branch=master
