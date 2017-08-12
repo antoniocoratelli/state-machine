@@ -1,5 +1,16 @@
 stages:
+- build
 - deploy
+
+build:
+  image: registry.gitlab.com/antoniocoratelli/docker-builder-as-a-service/cpp14-builder
+  stage: build
+  script:
+  - mkdir build; cd build
+  - cmake ..
+  - make
+  only:
+  - master
 
 pages:
   image: registry.gitlab.com/antoniocoratelli/docker-builder-as-a-service/doxygen
