@@ -12,6 +12,14 @@ build:
   only:
   - master
 
+cpplint:
+  image: registry.gitlab.com/antoniocoratelli/docker-builder-as-a-service/google-cpplint
+  stage: build
+  script:
+  - SOURCES=$(find examples/ -name '*.cpp')
+  - INCLUDES=$(find include/ -name '*.h')
+  - cpplint.py --linelength=120 $SOURCES $INCLUDES
+
 pages:
   image: registry.gitlab.com/antoniocoratelli/docker-builder-as-a-service/doxygen
   stage: deploy
