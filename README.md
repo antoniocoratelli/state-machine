@@ -39,7 +39,7 @@ The library provides the following three interfaces for building a state
 
 ## Build
 
-Use a modern C++ compiler with support ot the C++14 standard.
+Use a modern C++ compiler with support of the C++14 standard.
 Code was developed using `g++ 6.3.0 20170406`.
 
 Run in the project folder:
