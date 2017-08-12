@@ -14,6 +14,7 @@ C++14 header-only library for implementing
 [gl-link]: https://gitlab.com/antoniocoratelli/state-machine
 [gh-link]: https://github.com/antoniocoratelli/state-machine
 
+## Interface
 
 The library provides the following three interfaces for building a state
  machine: `State`, `Event` and the `StateMachine` itself.
