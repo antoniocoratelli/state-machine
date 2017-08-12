@@ -64,10 +64,12 @@ events and states are shown in red.
 ![Moka][example-img-moka]
 
 
-[build-img]: https://travis-ci.org/antoniocoratelli/state-machine.svg?branch=master
-[build-link]: https://travis-ci.org/antoniocoratelli/state-machine
+[build-img]: https://gitlab.com/antoniocoratelli/state-machine/badges/master/build.svg
+[build-link]: https://gitlab.com/antoniocoratelli/state-machine/commits/master
+
 [doc-img]: https://img.shields.io/badge/doxy-available-brightgreen.svg?style=flat
 [doc-link]: https://antoniocoratelli.gitlab.io/state-machine/annotated.html
+
 [license-img]: https://img.shields.io/badge/license-BSD-blue.svg?style=flat
 [license-link]: LICENSE
 
