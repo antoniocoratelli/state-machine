@@ -1,14 +1,12 @@
-image: alpine
+stages:
+- deploy
 
 pages:
+  image: registry.gitlab.com/antoniocoratelli/docker-builder-as-a-service/doxygen
+  stage: deploy
   script:
-  - apk update && apk add doxygen
-  - cd doc
-  - doxygen Doxyfile
-  - cd ..
-  - mkdir public
-  - mv doc/html/* public/
-  - cp -r doc/badges public/
+  - cd doc; doxygen Doxyfile; cd ..
+  - mv doc/html public
   artifacts:
     paths:
     - public
