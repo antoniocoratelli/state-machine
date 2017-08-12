@@ -66,8 +66,8 @@ events and states are shown in red.
 
 [build-img]: https://travis-ci.org/antoniocoratelli/state-machine.svg?branch=master
 [build-link]: https://travis-ci.org/antoniocoratelli/state-machine
-[doc-img]: https://img.shields.io/badge/documentation-here-brightgreen.svg?style=flat
-[doc-link]: https://antoniocoratellimirrors.gitlab.io/state-machine/annotated.html
+[doc-img]: https://img.shields.io/badge/doxy-available-brightgreen.svg?style=flat
+[doc-link]: https://antoniocoratelli.gitlab.io/state-machine/annotated.html
 [license-img]: https://img.shields.io/badge/license-BSD-blue.svg?style=flat
 [license-link]: LICENSE
 
