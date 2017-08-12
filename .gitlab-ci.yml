@@ -19,6 +19,7 @@ cpplint:
   - SOURCES=$(find examples/ -name '*.cpp')
   - INCLUDES=$(find include/ -name '*.h')
   - cpplint --linelength=120 $SOURCES $INCLUDES
+  allow_failure: true
 
 pages:
   image: registry.gitlab.com/antoniocoratelli/docker-builder-as-a-service/doxygen
