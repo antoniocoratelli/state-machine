@@ -48,7 +48,7 @@ TEST(TestTimedSwitch, StateMachine) {
     EXPECT_EQ(true, timed_switch.in<StateOn>());
 
     // We wait until the timer turns off the switch.
-    while(not timed_switch.update())
+    while (not timed_switch.update())
         std::cout << timed_switch.info() << std::endl;
     EXPECT_EQ(true, timed_switch.in<StateOff>());
     EXPECT_EQ(false, timed_switch.in<StateOn>());

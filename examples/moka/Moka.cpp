@@ -49,7 +49,7 @@ TEST(TestMoka, NormalUsage) {
     EXPECT_EQ(true, moka.in<StateBrewing>());
 
     // Waiting for it to finish.
-    while(not moka.update())
+    while (not moka.update())
         std::cout << moka.info() << std::endl;
     EXPECT_EQ(true, moka.in<StateReadyToServe>());
 

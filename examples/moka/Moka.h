@@ -103,7 +103,7 @@ public:
     }
 
     statemachine::Transition update() override {
-        if(_timeout-- > minutes(0)) return {};
+        if (_timeout-- > minutes(0)) return {};
         else return EventCoffeeReady().execute();
     }
 

@@ -80,7 +80,7 @@ inline std::string StateMachine::info() const {
 }
 
 inline void StateMachine::apply(Transition transition) {
-    if(transition) {
+    if (transition) {
         auto next_state = transition.value();
         std::cout << "{" << name() << "} Transitioning to: " << next_state->name() << std::endl;
         _current_state.reset(next_state);
@@ -103,7 +103,7 @@ template<class state_t> inline bool StateMachine::in() const {
 template<class controllable_event_t> inline void StateMachine::trigger() {
     static_assert(std::is_base_of<ControllableEvent, controllable_event_t>::value);
     controllable_event_t event;
-    if(_current_state->triggers<controllable_event_t>()) {
+    if (_current_state->triggers<controllable_event_t>()) {
         this->apply(event.execute());
     } else {
         std::string e = event.name();

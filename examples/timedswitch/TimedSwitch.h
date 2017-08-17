@@ -56,7 +56,7 @@ public:
     }
 
     statemachine::Transition update() override {
-        if(_timer-- > seconds(0)) return {};
+        if (_timer-- > seconds(0)) return {};
         else return EventTimeout().execute();
     }
 
