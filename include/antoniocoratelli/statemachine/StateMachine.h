@@ -27,7 +27,7 @@ public:
     /**
      * Constructs the state with the desired initial state.
      */
-    StateMachine(State::uptr_t initial_state);
+    explicit StateMachine(State::uptr_t initial_state);
 
     /**
      * Returns true iff the current state of the object is `state_t`.
