@@ -16,7 +16,7 @@ namespace statemachine {
  * @see NonControllableEvent
  */
 class Event {
-public:
+ public:
     virtual Transition execute() = 0;
     virtual std::string name() = 0;
     virtual ~Event() {}
@@ -27,7 +27,7 @@ public:
  * of the state machine.
  */
 class ControllableEvent: public Event {
-public:
+ public:
     virtual ~ControllableEvent() {}
 };
 
@@ -36,7 +36,7 @@ public:
  * user of the state machine. For example: timers, failures.
  */
 class NonControllableEvent: public Event {
-public:
+ public:
     virtual ~NonControllableEvent() {}
 };
 

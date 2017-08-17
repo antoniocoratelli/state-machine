@@ -23,7 +23,7 @@ namespace statemachine {
  * meaningful and descriptive information.
  */
 class StateMachine {
-public:
+ public:
     /**
      * Constructs the state with the desired initial state.
      */
@@ -60,10 +60,10 @@ public:
 
     virtual ~StateMachine() {}
 
-protected:
+ protected:
     State::uptr_t _current_state;
 
-private:
+ private:
     void apply(Transition t);
 };
 

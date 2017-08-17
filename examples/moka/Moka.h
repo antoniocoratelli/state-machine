@@ -24,7 +24,7 @@ class EventClean;
 /* Controllable States */
 
 class StateIdle: public statemachine::State {
-public:
+ public:
     StateIdle() {
         this->attach<EventFillWater>();
     }
@@ -34,7 +34,7 @@ public:
 };
 
 class StateWaitingForGroundCoffee: public statemachine::State {
-public:
+ public:
     StateWaitingForGroundCoffee() {
         this->attach<EventPutGroundCoffee>();
         this->attach<EventClean>();
@@ -45,7 +45,7 @@ public:
 };
 
 class StateReadyToBrew: public statemachine::State {
-public:
+ public:
     StateReadyToBrew() {
         this->attach<EventTurnFireOn>();
         this->attach<EventClean>();
@@ -56,7 +56,7 @@ public:
 };
 
 class StateReadyToServe: public statemachine::State {
-public:
+ public:
     StateReadyToServe() {
         this->attach<EventServe>();
         this->attach<EventClean>();
@@ -67,7 +67,7 @@ public:
 };
 
 class StateDirty: public statemachine::State {
-public:
+ public:
     StateDirty() {
         this->attach<EventClean>();
     }
@@ -79,7 +79,7 @@ public:
 /* NonControllable Events */
 
 class EventCoffeeReady: public statemachine::NonControllableEvent {
-public:
+ public:
     std::string name() override { return "CoffeeReady"; }
     statemachine::Transition execute() { return {new StateReadyToServe}; }
 };
@@ -87,7 +87,7 @@ public:
 /* NonControllable States */
 
 class StateBrewing: public statemachine::State {
-public:
+ public:
     StateBrewing():
         _timeout(5) {
         this->attach<EventTurnFireOff>();
@@ -107,44 +107,44 @@ public:
         else return EventCoffeeReady().execute();
     }
 
-private:
+ private:
     minutes _timeout;
 };
 
 /* Controllable Events */
 
 class EventFillWater: public statemachine::ControllableEvent {
-public:
+ public:
     std::string name() override { return "PutWater"; }
     statemachine::Transition execute() { return {new StateWaitingForGroundCoffee}; }
 };
 
 class EventPutGroundCoffee: public statemachine::ControllableEvent {
-public:
+ public:
     std::string name() override { return "PutGroundCoffee"; }
     statemachine::Transition execute() { return {new StateReadyToBrew}; }
 };
 
 class EventTurnFireOn: public statemachine::ControllableEvent {
-public:
+ public:
     std::string name() override { return "TurnFireOn"; }
     statemachine::Transition execute() { return {new StateBrewing}; }
 };
 
 class EventTurnFireOff: public statemachine::ControllableEvent {
-public:
+ public:
     std::string name() override { return "TurnFireOff"; }
     statemachine::Transition execute() { return {new StateDirty}; }
 };
 
 class EventServe: public statemachine::ControllableEvent {
-public:
+ public:
     std::string name() override { return "Serve"; }
     statemachine::Transition execute() { return {new StateDirty}; }
 };
 
 class EventClean: public statemachine::ControllableEvent {
-public:
+ public:
     std::string name() override { return "Clean"; }
     statemachine::Transition execute() { return {new StateIdle}; }
 };
@@ -152,7 +152,7 @@ public:
 /* State Machine */
 
 class Moka: public statemachine::StateMachine {
-public:
+ public:
     Moka(): StateMachine(std::make_unique<StateIdle>()) {}
     std::string name() const override { return "Moka::" + _current_state->name(); }
     std::string info() const override { return "{" + name() + "} " + _current_state->info(); }

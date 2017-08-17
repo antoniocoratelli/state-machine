@@ -17,7 +17,7 @@ class EventTurnOff;
 /* States */
 
 class StateOn: public statemachine::State {
-public:
+ public:
     StateOn() { this->attach<EventTurnOff>(); }
     std::string name() override { return "StateOn"; }
     std::string info() override { return "Current can flow."; }
@@ -25,7 +25,7 @@ public:
 };
 
 class StateOff: public statemachine::State {
-public:
+ public:
     StateOff() { this->attach<EventTurnOn>(); }
     std::string name() override { return "StateOff"; }
     std::string info() override { return "Circuit is open."; }
@@ -35,13 +35,13 @@ public:
 /* Controllable Events */
 
 class EventTurnOn: public statemachine::ControllableEvent {
-public:
+ public:
     std::string name() override { return "TurnOn"; }
     statemachine::Transition execute() { return {new StateOn}; }
 };
 
 class EventTurnOff: public statemachine::ControllableEvent {
-public:
+ public:
     std::string name() override { return "TurnOff"; }
     statemachine::Transition execute() { return {new StateOff}; }
 };
@@ -49,7 +49,7 @@ public:
 /* State Machine */
 
 class OnOffSwitch: public statemachine::StateMachine {
-public:
+ public:
     OnOffSwitch(): StateMachine(std::make_unique<StateOff>()) {}
     std::string name() const override { return "OnOffSwitch::" + _current_state->name(); }
     std::string info() const override { return "{" + name() + "} " + _current_state->info(); }

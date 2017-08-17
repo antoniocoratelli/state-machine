@@ -22,7 +22,7 @@ class StateOff;
 /* Controllable States */
 
 class StateOff: public statemachine::State {
-public:
+ public:
     StateOff() { this->attach<EventTurnOn>(); }
     std::string name() override { return "StateOff"; }
     std::string info() override { return "Circuit is open."; }
@@ -32,7 +32,7 @@ public:
 /* NonControllable Events */
 
 class EventTimeout: public statemachine::NonControllableEvent {
-public:
+ public:
     std::string name() override { return "Timeout"; }
     statemachine::Transition execute() { return {new StateOff}; }
 };
@@ -40,7 +40,7 @@ public:
 /* NonControllable States */
 
 class StateOn: public statemachine::State {
-public:
+ public:
     StateOn():
         _timer(15) {
         this->attach<EventTurnOff>();
@@ -60,20 +60,20 @@ public:
         else return EventTimeout().execute();
     }
 
-private:
+ private:
     seconds _timer;
 };
 
 /* Controllable Events */
 
 class EventTurnOn: public statemachine::ControllableEvent {
-public:
+ public:
     std::string name() override { return "TurnOn"; }
     statemachine::Transition execute() { return {new StateOn}; }
 };
 
 class EventTurnOff: public statemachine::ControllableEvent {
-public:
+ public:
     std::string name() override { return "TurnOff"; }
     statemachine::Transition execute() { return {new StateOff}; }
 };
@@ -81,7 +81,7 @@ public:
 /* State Machine */
 
 class TimedSwitch: public statemachine::StateMachine {
-public:
+ public:
     TimedSwitch(): StateMachine(std::make_unique<StateOff>()) {}
     std::string name() const override { return "TimedSwitch::" + _current_state->name(); }
     std::string info() const override { return "{" + name() + "} " + _current_state->info(); }

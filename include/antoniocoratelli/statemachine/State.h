@@ -24,7 +24,7 @@ class NonControllableEvent;
  * For example:
  * @code
  *   class StateIncomingCall: public State {
- *   public:
+ *    public:
  *     StateIncomingCall() {
  *       this->attach<EventAnswer>();
  *       this->attach<EventIgnore>();
@@ -35,7 +35,7 @@ class NonControllableEvent;
  * "IncomingCall".
  */
 class State {
-public:
+ public:
     typedef std::unique_ptr<State> uptr_t;
 
     /**
@@ -64,7 +64,7 @@ public:
 
     virtual ~State() {}
 
-protected:
+ protected:
     /**
      * Registers events of type `controllable_event_t` as a ControllableEvent
      * that can be triggered when the StateMachine is in the state defined
@@ -72,7 +72,7 @@ protected:
      */
     template<class controllable_event_t> void attach();
 
-private:
+ private:
     /**
      * Set of the ControllableEvents that were attached to this state.
      */
