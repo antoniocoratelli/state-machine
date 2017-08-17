@@ -87,5 +87,5 @@ public:
     std::string info() const override { return "{" + name() + "} " + _current_state->info(); }
 };
 
-} // timedswitch
-} // antoniocoratelli
+} // namespace timedswitch
+} // namespace antoniocoratelli

@@ -91,6 +91,6 @@ template<class controllable_event_t> inline bool State::triggers() const {
     return _allowed_controllable_events.count(event_type) > 0;
 }
 
-} // statemachine
-} // antoniocoratelli
+} // namespace statemachine
+} // namespace antoniocoratelli
 

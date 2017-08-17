@@ -158,5 +158,5 @@ public:
     std::string info() const override { return "{" + name() + "} " + _current_state->info(); }
 };
 
-} // moka
-} // antoniocoratelli
+} // namespace moka
+} // namespace antoniocoratelli

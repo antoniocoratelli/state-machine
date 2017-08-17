@@ -55,5 +55,5 @@ public:
     std::string info() const override { return "{" + name() + "} " + _current_state->info(); }
 };
 
-} // onoffswitch
-} // antoniocoratelli
+} // namespace onoffswitch
+} // namespace antoniocoratelli
