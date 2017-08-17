@@ -56,7 +56,7 @@ class StateMachine {
      * NonControllableEvents defined by the state itself.
      * @returns true Iff the state of the machine changes as effect of the call.
      */
-    virtual bool update() final;
+    virtual bool update() final;  // NOLINT(readability/inheritance)
 
     virtual ~StateMachine() {}
 
