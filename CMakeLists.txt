@@ -1,3 +1,8 @@
+#
+# Copyright 2017 Antonio Coratelli - All Rights Reserved
+# You may use, distribute and modify this code under the
+# terms of the BSD 3-Clause license.
+#
 cmake_minimum_required(VERSION 3.2.2)
 project(StateMachine)
 
