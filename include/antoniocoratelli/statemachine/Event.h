@@ -40,5 +40,5 @@ public:
     virtual ~NonControllableEvent() {}
 };
 
-} // namespace statemachine
-} // namespace antoniocoratelli
+}  // namespace statemachine
+}  // namespace antoniocoratelli

@@ -112,5 +112,5 @@ template<class controllable_event_t> inline void StateMachine::trigger() {
     }
 }
 
-} // namespace statemachine
-} // namespace antoniocoratelli
+}  // namespace statemachine
+}  // namespace antoniocoratelli

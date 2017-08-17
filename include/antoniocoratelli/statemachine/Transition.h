@@ -20,5 +20,5 @@ class State;
  */
 typedef std::experimental::optional<State*> Transition;
 
-} // namespace statemachine
-} // namespace antoniocoratelli
+}  // namespace statemachine
+}  // namespace antoniocoratelli
