@@ -56,7 +56,7 @@ public:
      * NonControllableEvents defined by the state itself.
      * @returns true Iff the state of the machine changes as effect of the call.
      */
-    bool update() final;
+    virtual bool update() final;
 
     virtual ~StateMachine() {}
 
