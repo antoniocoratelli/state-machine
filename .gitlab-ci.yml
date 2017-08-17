@@ -16,9 +16,8 @@ cpplint:
   image: registry.gitlab.com/antoniocoratelli/docker-builder-as-a-service/google-cpplint
   stage: build
   script:
-  - SOURCES=$(find examples/ -name '*.cpp')
-  - INCLUDES=$(find include/ -name '*.h')
-  - cpplint --linelength=120 $SOURCES $INCLUDES
+  - HEADERS=$(find include/ -name '*.h')
+  - cpplint --linelength=120 $HEADERS
   allow_failure: true
 
 pages:
