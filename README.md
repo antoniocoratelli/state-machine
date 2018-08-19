@@ -1,18 +1,7 @@
-# state-machine
+# state-machine [![License][license-img]][license-link]
 
-C++14 header-only library for implementing
-[Finite-State Machines](https://en.wikipedia.org/wiki/Finite-state_machine).
-
-[![Build Status][build-img]][build-link]
-[![Documentation][doc-img]][doc-link]
-[![License][license-img]][license-link]
-
-
-> This project is hosted on [GitLab][gl-link] and mirrored on [GitHub][gh-link].
-> Please open *Issues* and *Merge Requests* on GitLab.
-
-[gl-link]: https://gitlab.com/antoniocoratelli/state-machine
-[gh-link]: https://github.com/antoniocoratelli/state-machine
+> C++14 header-only library for implementing
+> [Finite-State Machines](https://en.wikipedia.org/wiki/Finite-state_machine).
 
 ## Interface
 
